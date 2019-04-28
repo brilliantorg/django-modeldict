@@ -9,6 +9,8 @@ Pending release
 
 .. Add new release notes below here
 
+* Tested with Django 2.2. No changes were needed for compatibility.
+
 2.0.1 (2019-02-15)
 ------------------
 
@@ -28,7 +30,7 @@ its above release note.**
   ``ModelDict``, and move ``items()``, ``keys()``, and ``values()`` to Python 3
   semantics, returning iterators rather than lists.
 * Include LICENSE file in wheel.
-* Tested with Django 2.1 (no changes were needed for compatibility).
+* Tested with Django 2.1. No changes were needed for compatibility.
 
 1.5.4 (2016-10-28)
 ------------------
