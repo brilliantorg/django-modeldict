@@ -9,6 +9,9 @@ Pending release
 
 .. Add new release notes below here
 
+2.0.3 (2019-05-17)
+------------------
+
 * **Retired: this project is no longer maintained.** I (Adam Johnson) no longer
   have time to continue maintaining this. I was doing so to support
   `gargoyle-yplan <https://github.com/adamchainz/gargoyle>`__, a fork for my
