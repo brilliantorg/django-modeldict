@@ -8,6 +8,11 @@ django-modeldict
 .. image:: https://travis-ci.org/adamchainz/django-modeldict.svg?branch=master
     :target: https://travis-ci.org/adamchainz/django-modeldict
 
+**Retired: this project is no longer maintained.** I (Adam Johnson) no longer
+have time to continue maintaining this. I was doing so to support
+`gargoyle-yplan <https://github.com/adamchainz/gargoyle>`__, a fork for my
+ex-employer YPlan. If you'd like to sponsor ongoing maintenance or take it over
+yourself, please contact me@adamj.eu.
 
 ``ModelDict`` is a very efficient way to store things like settings in your database. The entire model is transformed into a dictionary (lazily) as well as stored in your cache. It's invalidated only when it needs to be (both in process and based on ``CACHE_BACKEND``).
 
