@@ -113,7 +113,7 @@ class CachedDict(object):
             self.remote_cache_last_updated_key
         )
 
-        if not remote_last_updated:
+        if not isinstance(remote_last_updated, float):
             # TODO: I don't like how we're overloading the return value here for
             # this method.  It would be better to have a separate method or
             # @property that is the remote last_updated value.
@@ -161,17 +161,17 @@ class CachedDict(object):
 
             local_cache_is_invalid = self.local_cache_is_invalid()
 
-            # If local_cache_is_invalid  is None, that means that there was no
-            # data present, so we assume we need to add the key to cache.
-            if local_cache_is_invalid is None:
-                self.remote_cache.add(self.remote_cache_last_updated_key, now)
+            # # If local_cache_is_invalid  is None, that means that there was no
+            # # data present, so we assume we need to add the key to cache.
+            # if local_cache_is_invalid is None:
+            #     self.remote_cache.add(self.remote_cache_last_updated_key, now)
 
             # Now, if the remote has changed OR it was None in the first place,
             # pull in the values from the remote cache and set it to the
             # local_cache
-            if local_cache_is_invalid or local_cache_is_invalid is None:
+            if local_cache_is_invalid:
                 remote_value = self.remote_cache.get(self.remote_cache_key)
-                if remote_value is not None:
+                if isinstance(remote_value, dict):
                     self._local_cache = remote_value
                     # We've updated from remote, so mark ourselves as
                     # such so that we won't expire until the next timeout
@@ -181,7 +181,7 @@ class CachedDict(object):
             self._last_checked_for_remote_changes = now
 
         # Update from cache if local_cache is still empty
-        if self._local_last_updated is None:
+        if self._local_last_updated is None or local_cache_is_invalid is None:
             self._update_cache_data()
 
         return self._local_cache
