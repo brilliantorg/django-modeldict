@@ -181,7 +181,7 @@ class CachedDict(object):
             self._last_checked_for_remote_changes = now
 
         # Update from cache if local_cache is still empty
-        if self._local_last_updated is None or local_cache_is_invalid is None:
+        if self._local_last_updated is None:
             self._update_cache_data()
 
         return self._local_cache
